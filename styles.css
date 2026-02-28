@@ -1,0 +1,922 @@
+/* Global Styles */
+:root {
+    --primary-color: #ff6b00;
+    /* Keeping original primary for specific highlights if needed */
+    --accent-color: #f4b41a;
+    /* New Yellow/Orange from reference */
+    --secondary-color: #343a40;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --footer-bg: #f8f9fa;
+    /* Light footer */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    padding-top: 80px;
+    /* Navbar height placeholder */
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+/* Custom Buttons */
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    /* Rectangular as per reference */
+    padding: 10px 30px;
+}
+
+.btn-accent:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    color: #fff;
+}
+
+    /* Navbar */
+    .navbar{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
+    .brand-dot{
+      display:inline-block;
+      width:10px; height:10px;
+      background: var(--accent);
+      border-radius:50%;
+      margin-left:6px;
+      vertical-align: middle;
+    }
+    .nav-link{
+      font-weight: 600;
+      color: #111827 !important;
+    }
+    .nav-link:hover{ color: var(--accent) !important; }
+    .nav-link.active{ color: var(--accent) !important; }
+
+    .btn-accent{
+      background: var(--accent);
+      border: none;
+      color:#111827;
+      font-weight: 700;
+      border-radius: 999px;
+    }
+    .btn-accent:hover{
+      filter: brightness(0.95);
+      color:#111827;
+    }
+    /* Fix navbar blank space on scroll */
+.navbar{
+  background-color: #ffffff;   /* or your theme color */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* Increase space between navbar links */
+.navbar-nav .nav-item {
+  margin-left: 18px;   /* increase if you want more space */
+}
+
+/* Hero Carousel */
+.hero-carousel {
+    margin-top: -80px;
+    /* Pull behind navbar if transparent, or just reset */
+    margin-top: 0;
+    /* Since navbar is white/solid, we don't pull up */
+}
+
+.carousel-item {
+    height: 85vh;
+    min-height: 600px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-caption {
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    left: 0;
+    right: 0;
+    padding-bottom: 3rem;
+    /* Adjustment */
+}
+
+/* Hero Content Styling */
+.hero-badge {
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 0 0 8px rgba(244, 180, 26, 0.3);
+}
+
+.hero-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title span {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+}
+
+
+
+:root {
+    --accent: #d9a441;
+    /* golden line + circle border */
+    --text: #2f2f2f;
+    --muted: #6b7280;
+    --card: #ffffff;
+    --soft: #f6f7f9;
+}
+
+body {
+    background: #fff;
+    color: var(--text);
+}
+
+/* Section title */
+.section-title {
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.title-underline {
+    width: 130px;
+    height: 4px;
+    background: var(--accent);
+    margin: 10px auto 36px;
+    border-radius: 10px;
+}
+
+/* Category card */
+.cat-card {
+    background: var(--card);
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: transform .25s ease, box-shadow .25s ease;
+    padding: 22px 18px 18px;
+    height: 100%;
+}
+
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+/* Circle image frame */
+.circle-wrap {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    margin: 0 auto 18px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #fff;
+}
+
+.circle-wrap img {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    display: block;
+    transform: translateZ(0);
+}
+
+/* Text */
+.cat-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: #3a3a3a;
+}
+
+/* spacing */
+.categories-section {
+    padding: 70px 0 40px;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    .circle-wrap {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+
+
+
+/* Product Cards */
+.product-card {
+    border: none;
+    transition: all 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer (Light Theme) */
+/* ===== Creative Static Footer (Minimal + Premium) ===== */
+.ft{
+  background: #0b0f14;
+  color: #cbd5e1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold line */
+.ft-topline{
+  height: 4px;
+  background: #d9a441;
+}
+
+/* Subtle background glow */
+.ft::before{
+  content:"";
+  position:absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(217,164,65,0.10);
+  filter: blur(40px);
+  top: -160px;
+  right: -140px;
+}
+
+/* Brand */
+.ft-brand{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom: 10px;
+}
+.ft-mark{
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: #d9a441;
+  margin-top: 6px;
+  box-shadow: 0 0 0 6px rgba(217,164,65,0.15);
+}
+.ft-name{
+  color:#fff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.ft-tag{
+  color:#9aa5b1;
+  font-size: 14px;
+}
+.ft-desc{
+  color:#9aa5b1;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Badges */
+.ft-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.ft-badge{
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color:#e2e8f0;
+  font-size: 13px;
+}
+
+/* Titles */
+.ft-title{
+  color:#ffffff;
+  font-weight: 700;
+  margin-bottom: 14px;
+  position: relative;
+}
+.ft-title::after{
+  content:"";
+  display:block;
+  width: 44px;
+  height: 3px;
+  margin-top: 8px;
+  background:#d9a441;
+  border-radius: 99px;
+}
+
+/* Links */
+.ft-links{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.ft-links li{ margin-bottom: 10px; }
+.ft-links a{
+  color:#9aa5b1;
+  text-decoration:none;
+  transition: 0.25s ease;
+}
+.ft-links a:hover{
+  color:#d9a441;
+  padding-left: 6px;
+}
+
+/* Contact */
+.ft-contact{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:#9aa5b1;
+}
+.ft-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.ft-ic{ width: 22px; text-align:center; }
+.ft-contact a{
+  color:#9aa5b1;
+  text-decoration:none;
+}
+.ft-contact a:hover{ color:#d9a441; }
+
+/* Mini cards */
+.ft-mini{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.ft-mini-card{
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.ft-mini-title{
+  color:#fff;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.ft-mini-text{
+  color:#9aa5b1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Bottom */
+.ft-bottom{
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.35);
+  color:#9aa5b1;
+  font-size: 13px;
+}
+.ft-bottom-links a{
+  color:#9aa5b1;
+  text-decoration:none;
+}
+.ft-bottom-links a:hover{ color:#d9a441; }
+.ft-dot{ margin: 0 8px; opacity: 0.7; }
+.ft-gold{ color:#d9a441; }
+
+/* Responsive */
+@media (max-width: 576px){
+  .ft-mini{ grid-template-columns: 1fr; }
+}
+
+
+
+
+
+/* Why Choose Us Section */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.feature-list li i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.read-more-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.read-more-link:hover {
+    color: #e0a800;
+}
+
+.read-more-link i {
+    margin-left: 5px;
+    font-size: 1.1rem;
+}
+
+
+
+/* Image Size */
+.product-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Product Cards */
+.product-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+  --accent:#f4b41a; /* your website color */
+}
+
+.title-line{
+  width:90px;
+  height:4px;
+  background: var(--accent);
+  border-radius:999px;
+}
+
+.testi-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  box-shadow: 0 14px 30px rgba(2,6,23,.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.testi-card::before{
+  content:"";
+  position:absolute;
+  left:0; bottom:0;
+  width:100%;
+  height:5px;
+  background: var(--accent);
+}
+
+.avatar{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  color:#111827;
+  background: rgba(244,180,26,.22);
+  border:1px solid rgba(244,180,26,.35);
+  flex:0 0 auto;
+}
+
+.stars i{
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+.carousel-indicators [data-bs-target]{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+}
+
+.carousel-indicators .active{
+  background: var(--accent);
+}
+
+/* smaller controls on mobile */
+@media (max-width: 576px){
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon{
+    transform: scale(.85);
+  }
+}
+
+
+
+#testimonials {
+  padding-bottom: 30px !important;
+}
+
+.carousel {
+  margin-bottom: 0 !important;
+}
+
+.carousel-indicators {
+  margin-bottom: 0 !important;
+}
+/* ✅ Remove big blank space in testimonial carousel */
+#testimonials{
+  padding-bottom: 24px !important;
+}
+
+/* force carousel to wrap content height only */
+#testimonials .carousel,
+#testimonials .carousel-inner,
+#testimonials .carousel-item{
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* bring indicators just below the card (not at bottom of big area) */
+#testimonials .carousel-indicators{
+  position: static !important;
+  margin-top: 16px !important;
+  margin-bottom: 0 !important;
+}
+/* Slider dots */
+/* Slider dots - perfectly round */
+.carousel-indicators [data-bs-target] {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: #ddd;
+  opacity: 1;
+}
+
+.carousel-indicators .active {
+  background-color: #0c0c0c !important;  /* your theme color */
+}
+
+
+
+
+/* ✅ Testimonial dots: force perfect circles */
+#testimonials .testi-dots button{
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+
+  padding: 0 !important;
+  margin: 0 6px !important;
+
+  border-radius: 50% !important;
+  border: 0 !important;
+
+  background-color: #ddd !important;
+  opacity: 1 !important;
+
+  flex: 0 0 12px !important;
+}
+
+#testimonials .testi-dots button.active{
+  background-color: #0c0c0c !important;
+}
+
+
+
+
+
+
+.avatar {
+  width: 90px;   /* new bigger size */
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+/* catagories */
+
+/* ✅ FULL OVERRIDE - makes indicators true circles */
+#productCarousel .carousel-indicators [data-bs-target] {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+
+  /* remove Bootstrap pill styling */
+  margin: 0 6px !important;
+  border: 0 !important;
+  background-clip: initial !important;
+  opacity: 0.35;           /* normal dot */
+}
+
+#productCarousel .carousel-indicators .active {
+  opacity: 1 !important;
+  background-color: #d9a441 !important;
+}
+
+
+
+
+
+/* Remove forced height from carousel items */
+#productCarousel .carousel-item {
+    height: auto !important;
+    min-height: auto !important;
+}
+
+/* Remove extra bottom space inside carousel */
+#productCarousel .carousel-inner {
+    padding-bottom: 0;
+}
+
+/* Reduce section bottom padding */
+#products-carousel {
+    padding-bottom: 10px !important;
+}
+/* Move dots slightly down */
+#productCarousel .carousel-indicators {
+    position: relative;   /* keep it normal flow */
+    margin-top: 20px;     /* increase this value if needed */
+}
+
+
+
+
+
+
+
+
+
+/* WhatsApp Floating Button */
+.whatsapp-float{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.whatsapp-float:hover{
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+  color: #fff;
+}
+
+/* Premium Pulse Animation */
+.whatsapp-float::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.4);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse{
+  0%{
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%{
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px){
+  .whatsapp-float{
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
+
+
+
+
+/* ===========================
+   ULTRA PREMIUM WHATSAPP BTN
+=========================== */
+
+.whatsapp-glass{
+  position: fixed;
+  bottom: 35px;
+  right: 45px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(37, 211, 102, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+
+  transition: all 0.4s ease;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+/* Hover Lift Effect */
+.whatsapp-glass:hover{
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  color: #fff;
+}
+
+/* Soft Glow Ring */
+.whatsapp-glass::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: pulse-ring 2.5s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring{
+  0%{
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%{
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+/* Smooth Floating Animation */
+@keyframes floaty{
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile Adjust */
+@media (max-width: 576px){
+  .whatsapp-glass{
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
+/* Hidden state */
+.whatsapp-hidden{
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Visible state */
+.whatsapp-show{
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+
+
+/* Hide/Show without transform (avoids conflict with float animation) */
+.whatsapp-hidden{
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  animation-play-state: paused !important; /* stops float animation while hidden */
+}
+
+.whatsapp-show{
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  animation-play-state: running !important;
+}

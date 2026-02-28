@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cement Products</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+
+
+    
+    :root{
+      --card-radius: 14px;
+      --shadow: 0 10px 26px rgba(17, 24, 39, .08);
+      --shadow-hover: 0 18px 38px rgba(17, 24, 39, .14);
+    }
+
+    body{
+      background:#f6f7fb;
+      color:#0f172a;
+    }
+
+
+
+
+
+    :root{
+      --accent:#f4b41a;     /* ✅ Your website color */
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:#e5e7eb;
+    }
+
+
+.custom-nav{
+  background:#fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* ✅ Back button at LEFT END of the screen */
+.back-btn{
+  position: absolute;          /* relative to navbar */
+  left: 30px;                  /* screen edge spacing */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: all .25s ease;
+  z-index: 1040;               /* above container items */
+}
+
+.back-btn:hover{
+  background:#d9a441;
+  color:#fff;
+  transform: translateY(-50%) translateX(-3px);
+}
+    .nav-link{
+      font-weight: 600;
+      color: #111827 !important;
+    }
+    .nav-link:hover{ color: var(--accent) !important; }
+    .nav-link.active{ color: var(--accent) !important; }
+
+    .btn-accent{
+      background: var(--accent);
+      border: none;
+      color:#111827;
+      font-weight: 700;
+      border-radius: 999px;
+    }
+    .btn-accent:hover{
+      filter: brightness(0.95);
+      color:#111827;
+    }
+
+
+
+
+    /* Section spacing (compact) */
+    #products{
+      padding: 28px 0 40px;
+    }
+
+    /* Grid tighter + premium */
+    .product-grid{
+      row-gap: 18px;
+      column-gap: 0;
+    }
+
+    /* Card premium + compact */
+    .product-card{
+      border: 0;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
+      height: 100%;
+    }
+    .product-card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Image: same height, neat crop */
+    .product-card img{
+      height: 150px;        /* ✅ smaller */
+      width: 100%;
+      object-fit: cover;
+      display:block;
+      background:#fff;
+    }
+
+    .product-card .card-body{
+      padding: 12px 12px 14px;  /* ✅ compact */
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .product-card .card-title{
+      font-size: .98rem;    /* ✅ smaller title */
+      line-height: 1.25;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* Button: premium + compact */
+    .btn-quote{
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    /* Keep container a bit wider on desktop (looks premium) */
+    @media (min-width: 1200px){
+      .container{ max-width: 1180px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top custom-nav p-3">
+
+  <!-- Back button OUTSIDE container (so it can sit at left end) -->
+  <a href="javascript:history.back()" class="back-btn" aria-label="Go back">
+    <i class="bi bi-arrow-left"></i>
+  </a>
+
+  <div class="container p-2">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="bi bi-bricks text-warning me-2"></i> CONSTRUCTO
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link " href="about.html">About us</a></li>
+
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-accent btn-sm px-4 py-2" href="quote.html">
+            <i class="bi bi-telephone me-1"></i> Enquire
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Products Section -->
+  <section id="products">
+    <div class="container mt-3">
+
+      <!-- ✅ 4 per row on desktop -->
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-5 product-grid">
+
+        <!-- Product 1 -->
+        <div class="col product-item cement">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/5998120/pexels-photo-5998120.jpeg"
+              alt="Cement">
+            <div class="card-body">
+              <h5 class="card-title">Premium Portland Cement</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col product-item steel">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/6947284/pexels-photo-6947284.jpeg"
+              alt="Steel Bars">
+            <div class="card-body">
+              <h5 class="card-title">Reinforced Steel Bars</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col product-item tiles">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/12127447/pexels-photo-12127447.jpeg"
+              alt="Tiles">
+            <div class="card-body">
+              <h5 class="card-title">Ceramic Floor Tiles</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col product-item tiles">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg"
+              alt="Bricks">
+            <div class="card-body">
+              <h5 class="card-title">Red Clay Bricks</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="col product-item paint">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/13675292/pexels-photo-13675292.jpeg"
+              alt="Paint">
+            <div class="card-body">
+              <h5 class="card-title">Interior Emulsion Paint</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="col product-item steel">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/7018400/pexels-photo-7018400.jpeg"
+              alt="Door Lock">
+            <div class="card-body">
+              <h5 class="card-title">Door Lock</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+                <!-- Product 7 -->
+        <div class="col product-item steel">
+          <div class="card product-card">
+            <img src="https://images.pexels.com/photos/30778651/pexels-photo-30778651.jpeg"
+              alt="Door Lock">
+            <div class="card-body">
+              <h5 class="card-title">Door Lock</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

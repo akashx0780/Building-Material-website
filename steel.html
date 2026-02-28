@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cement Products</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+
+
+    
+    :root{
+      --card-radius: 14px;
+      --shadow: 0 10px 26px rgba(17, 24, 39, .08);
+      --shadow-hover: 0 18px 38px rgba(17, 24, 39, .14);
+    }
+
+    body{
+      background:#f6f7fb;
+      color:#0f172a;
+    }
+
+
+
+
+
+    :root{
+      --accent:#f4b41a;     /* ✅ Your website color */
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:#e5e7eb;
+    }
+
+
+.custom-nav{
+  background:#fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* ✅ Back button at LEFT END of the screen */
+.back-btn{
+  position: absolute;          /* relative to navbar */
+  left: 30px;                  /* screen edge spacing */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: all .25s ease;
+  z-index: 1040;               /* above container items */
+}
+
+.back-btn:hover{
+  background:#d9a441;
+  color:#fff;
+  transform: translateY(-50%) translateX(-3px);
+}
+    .nav-link{
+      font-weight: 600;
+      color: #111827 !important;
+    }
+    .nav-link:hover{ color: var(--accent) !important; }
+    .nav-link.active{ color: var(--accent) !important; }
+
+    .btn-accent{
+      background: var(--accent);
+      border: none;
+      color:#111827;
+      font-weight: 700;
+      border-radius: 999px;
+    }
+    .btn-accent:hover{
+      filter: brightness(0.95);
+      color:#111827;
+    }
+
+
+
+
+    /* Section spacing (compact) */
+    #products{
+      padding: 28px 0 40px;
+    }
+
+    /* Grid tighter + premium */
+    .product-grid{
+      row-gap: 18px;
+      column-gap: 0;
+    }
+
+    /* Card premium + compact */
+    .product-card{
+      border: 0;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
+      height: 100%;
+    }
+    .product-card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Image: same height, neat crop */
+    .product-card img{
+      height: 150px;        /* ✅ smaller */
+      width: 100%;
+      object-fit: cover;
+      display:block;
+      background:#fff;
+    }
+
+    .product-card .card-body{
+      padding: 12px 12px 14px;  /* ✅ compact */
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .product-card .card-title{
+      font-size: .98rem;    /* ✅ smaller title */
+      line-height: 1.25;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* Button: premium + compact */
+    .btn-quote{
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    /* Keep container a bit wider on desktop (looks premium) */
+    @media (min-width: 1200px){
+      .container{ max-width: 1180px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top custom-nav p-3">
+
+  <!-- Back button OUTSIDE container (so it can sit at left end) -->
+  <a href="javascript:history.back()" class="back-btn" aria-label="Go back">
+    <i class="bi bi-arrow-left"></i>
+  </a>
+
+  <div class="container p-2">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="bi bi-bricks text-warning me-2"></i> CONSTRUCTO
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link " href="about.html">About us</a></li>
+
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-accent btn-sm px-4 py-2" href="quote.html">
+            <i class="bi bi-telephone me-1"></i> Enquire
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Products Section -->
+  <section id="products">
+    <div class="container mt-3">
+
+      <!-- ✅ 4 per row on desktop -->
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-5 product-grid">
+
+        <!-- Product 1 -->
+        <div class="col product-item cement">
+          <div class="card product-card">
+            <img src="data:image/jpeg;base64,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"
+              alt="Cement">
+            <div class="card-body">
+              <h5 class="card-title">Premium Portland Cement</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col product-item steel">
+          <div class="card product-card">
+            <img src="https://media.istockphoto.com/id/1063784898/photo/building-armature-steel-bars-stack-on-white-background.jpg?s=612x612&w=0&k=20&c=fW1lo902dN0Oe_H3iSHKhuM9kS5pUOFJrO6Fp-EjH8Y="
+              alt="Steel Bars">
+            <div class="card-body">
+              <h5 class="card-title">Reinforced Steel Bars</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col product-item tiles">
+          <div class="card product-card">
+            <img src="https://cdn.pixabay.com/photo/2016/08/23/09/41/hex-bolt-1613931_1280.jpg"
+              alt="Tiles">
+            <div class="card-body">
+              <h5 class="card-title">Ceramic Floor Tiles</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col product-item tiles">
+          <div class="card product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQxPVke6xCBGxSZ0QzRn8OIz6vX8Ytf7N6iQ&s"
+              alt="Bricks">
+            <div class="card-body">
+              <h5 class="card-title">Red Clay Bricks</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="col product-item paint">
+          <div class="card product-card">
+            <img src="https://cdn.pixabay.com/photo/2015/08/06/03/27/bolt-877370_1280.jpg"
+              alt="Paint">
+            <div class="card-body">
+              <h5 class="card-title">Interior Emulsion Paint</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <!-- <div class="col product-item steel">
+          <div class="card product-card">
+            <img src="https://media.istockphoto.com/id/506006718/photo/cement-bags-on-pallet-with-hand-truck.jpg?s=1024x1024&w=is&k=20&c=5AEoBF1IYppD9IOvkNL9Kxm9WumCEwg2E6FtXSuj4uI="
+              alt="Door Lock">
+            <div class="card-body">
+              <h5 class="card-title">Door Lock</h5>
+              <a href="quote.html" class="btn btn-primary btn-quote w-100">Get Quote</a>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

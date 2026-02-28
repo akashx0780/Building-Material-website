@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructo - Premium Building Materials</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container p-2">
+                      <a class="navbar-brand" href="#">
+                <i class="bi bi-bricks text-warning me-2"></i> CONSTRUCTO
+            </a>
+
+            
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link " href="product.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="quote.html">Contact</a></li> -->
+
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-accent btn-sm px-4 py-2" href="quote.html">
+              <i class="bi bi-telephone me-1" ></i> Enquire
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Hero Carousel Section -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active"
+                style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop');">
+                <div class="carousel-caption">
+                    <div class="container text-center">
+                        <div class="d-flex justify-content-center">
+                            <div class="hero-badge">
+                                <i class="bi bi-pen-fill"></i>
+                            </div>
+                        </div>
+                        <h6 class="hero-subtitle">Way In Building & Civil Construction</h6>
+                        <h1 class="hero-title">Build Your <span>Dream</span></h1>
+                        <p class="lead text-white mb-4">We specialize in commercial, industrial, public infrastructure,
+                            housing<br>construction and supply, installation and maintenance.</p>
+                        <a href="#contact" class="btn btn-accent btn-lg">Get A Quote</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 (Optional for carousel effect) -->
+            <div class="carousel-item"
+                style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop');">
+                <div class="carousel-caption">
+                    <div class="container text-center">
+                        <div class="d-flex justify-content-center">
+                            <div class="hero-badge">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                        </div>
+                        <h6 class="hero-subtitle">Quality Materials & Service</h6>
+                        <h1 class="hero-title">Construct <span>Tomorrow</span></h1>
+                        <p class="lead text-white mb-4">Providing top-quality building materials for residential and
+                            commercial projects.<br>From foundation to finish.</p>
+                        <a href="product.html" class="btn btn-accent btn-lg">Explore Shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+
+ <!-- PRODUCTS CAROUSEL (4 per slide) -->
+<section id="products-carousel" class="categories-section pt-4 mt-5">
+  <div class="container">
+
+    <h2 class="section-title">Catagories</h2>
+    <div class="title-underline"></div>
+
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+      
+      <!-- Slides -->
+      <div class="carousel-inner">
+
+
+
+
+        <!-- Slide 1 (4 products) -->
+        <div class="carousel-item active">
+          <div class="row g-4 justify-content-center">
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="tiles.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/2125705052/photo/stone-texture-for-modern-interior-design-furniture-manufacturing-a-sample-of-artificial.jpg?s=1024x1024&w=is&k=20&c=HIyRwtpCyMsoU99mOh7ItSitQ-EFLetWkR182Ob9Nl8=" alt="Tiles">
+                </div>
+                <p class="cat-name text-center"> Tiles</p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="lightings.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/1082558358/photo/different-modern-streamlined-mirror-copper-chandeliers-bubble-metal-copper-shade-pendant.jpg?s=612x612&w=0&k=20&c=VdUYuCKY4bKhSquqqRu2NvuKCf1ja0KIo6YH_7ErV0c=" alt="Lighting">
+                </div>
+                <p class="cat-name text-center"> Lightings</p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="furnitures.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://images.pexels.com/photos/7005285/pexels-photo-7005285.jpeg" alt="Furniture">
+                </div>
+                <p class="cat-name">Furnitures</p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="electronics.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/2196897335/photo/a-close-up-view-of-a-multi-stranded-electrical-cable-with-a-red-outer-insulation-3d.jpg?s=1024x1024&w=is&k=20&c=ZTlwjuSPOYdUs2ygCcjx4X82V_a-80efHpj5kmQVS5E=" alt="Cable">
+                </div>
+                <p class="cat-name text-center">Electronics</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+        <!-- Slide 2 (4 products) -->
+        <div class="carousel-item ">
+          <div class="row g-4 justify-content-center">
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="cement.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/1448349078/photo/cement-bags-o-sacks-isolated-on-white.jpg?s=1024x1024&w=is&k=20&c=lx0aJxqPuwAIq_lY0hHyTKgIBPbaiooSzWb7mNn0nt0=" alt="Cement">
+                </div>
+                <p class="cat-name text-center">Cement</p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="pipes.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/618430622/photo/pvc-pipe.jpg?s=612x612&w=0&k=20&c=xzQhZHVhNCzksGi4FrDqGxERroTkK5wntR1LFbVdZ1s=" alt="PVC Pipe">
+                </div>
+                <p class="cat-name text-center">PVC Pipe </p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="paint.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWftlERUtEptgk0QBbOMZ97Be-RPlUz9Nk2w&s" alt="Paint">
+                </div>
+                <p class="cat-name text-center">Paint</p>
+              </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <a href="steel.html" class="cat-card w-100 text-start d-block text-decoration-none">
+                <div class="circle-wrap">
+                  <img src="https://media.istockphoto.com/id/1063784898/photo/building-armature-steel-bars-stack-on-white-background.jpg?s=612x612&w=0&k=20&c=fW1lo902dN0Oe_H3iSHKhuM9kS5pUOFJrO6Fp-EjH8Y=" alt="Steel">
+                </div>
+                <p class="cat-name text-center"> Steel </p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+
+        
+
+
+<!-- Slide 3 (4 products) -->
+<div class="carousel-item">
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <a href="plywood.html" class="cat-card w-100 text-start d-block text-decoration-none">
+        <div class="circle-wrap">
+          <img src="https://media.istockphoto.com/id/1197433923/photo/variety-of-laminate-material-samples-on-dark-stone-background.jpg?s=612x612&w=0&k=20&c=PbzLzOR4vZAe_XRKyGQuAbu3pNemf_4w5pX12SwbQRE=" alt="Bricks">
+        </div>
+        <p class="cat-name text-center">Plywood & Laminates</p>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <a href="appliances.html" class="cat-card w-100 text-start d-block text-decoration-none">
+        <div class="circle-wrap">
+          <img src="https://images.pexels.com/photos/6527044/pexels-photo-6527044.jpeg" alt="Granite">
+        </div>
+        <p class="cat-name text-center">Appliances</p>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <a href="sofa.html" class="cat-card w-100 text-start d-block text-decoration-none">
+        <div class="circle-wrap">
+          <img src="https://media.istockphoto.com/id/2210077136/photo/living-room-interior-mock-up-with-modern-furnitures-poster-frame-mock-up-in-modern-interior.jpg?s=1024x1024&w=is&k=20&c=EbJ1x8e7zAQNDpsEX6lZW44cOBy8nR8I1Lcyfvr8VdE=" alt="Wood">
+        </div>
+        <p class="cat-name text-center">Sofa sets</p>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <a href="hardware.html" class="cat-card w-100 text-start d-block text-decoration-none">
+        <div class="circle-wrap">
+          <img src="https://images.pexels.com/photos/16515/pexels-photo.jpg" alt="Hardware">
+        </div>
+        <p class="cat-name text-center">Hardware</p>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+      <!-- Dots -->
+      <div class="carousel-indicators mt-3">
+        <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- Features Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold">Why Choose Constructo?</h2>
+                    <p class="text-muted">We deliver quality, reliability, and speed for every construction need.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-shield-check display-4"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Premium Quality</h4>
+                        <p class="card-text text-muted">Sourced from top manufacturers ensuring durability and safety
+                            standards.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-truck display-4"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Fast Delivery</h4>
+                        <p class="card-text text-muted">Same-day delivery options available to keep your project on
+                            schedule.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-currency-dollar display-4"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Best Pricing</h4>
+                        <p class="card-text text-muted">Competitive rates for bulk orders and consistent supply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Get a Quote Today</h2>
+                    <p class="text-muted mb-4">Fill out the form and our team will get back to you within 24 hours
+                        with
+                        a customized quote for your project.</p>
+                    <div class="d-flex mb-3">
+                        <div class="flex-shrink-0 text-primary fs-4 me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Our Location</h5>
+                            <p class="mb-0 text-muted">123 Builder's Lane, Construction City, ST 54321</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="flex-shrink-0 text-primary fs-4 me-3"><i class="bi bi-telephone-fill"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Call Us</h5>
+                            <p class="mb-0 text-muted">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 text-primary fs-4 me-3"><i class="bi bi-envelope-fill"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Email Us</h5>
+                            <p class="mb-0 text-muted">sales@constructo-example.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form id="contactForm" class="p-4 bg-white shadow-sm rounded">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="material" class="form-label">Material Needed</label>
+                            <select class="form-select" id="material">
+                                <option selected>Select Material...</option>
+                                <option value="cement">Cement</option>
+                                <option value="steel">Steel</option>
+                                <option value="bricks">Bricks</option>
+                                <option value="sand">Sand</option>
+                                <option value="tiles">Tiles</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="pt-5 pb-4 bg-light">
+        <div class="container">
+
+            <!-- Title -->
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">What Customers Say</h2>
+                <p class="text-muted mb-0">Trusted by builders, contractors, and home owners</p>
+                <div class="title-line mx-auto mt-3"></div>
+            </div>
+
+            <!-- Slider -->
+            <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+                <div class="carousel-inner">
+
+                    <!-- 1 -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="testi-card p-4 p-lg-5">
+                                    <div class="d-flex align-items-start gap-3">
+                                        <div class="avatar">
+                                            <img src="https://media.istockphoto.com/id/2190431232/photo/successful-businessman-in-modern-office-working-on-laptop.jpg?s=612x612&w=0&k=20&c=J1JuJN8jG94T-OJNTKp2MFBsj6fbwAYF9z-bOIfBPqQ=" alt="Ramesh Kumar">
+                                        </div>
+
+                                        <div class="w-100">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                                                <div>
+                                                    <h5 class="fw-bold mb-0">Ramesh Kumar</h5>
+                                                    <small class="text-muted">Contractor • Madurai</small>
+                                                </div>
+
+                                                <div class="stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                            </div>
+
+                                            <p class="mt-3 mb-0 text-muted">
+                                                “Quality cement and steel at the best price. Delivery was fast and
+                                                properly packed.
+                                                Their support helped me choose the right materials.”
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="testi-card p-4 p-lg-5">
+                                    <div class="d-flex align-items-start gap-3">
+                                         <div class="avatar">
+                                            <img src="https://media.istockphoto.com/id/1369199250/photo/portrait-of-a-handsome-young-businessman-working-in-office.jpg?s=612x612&w=0&k=20&c=uMMbWRThfO2nZ6mN0aOfJ5QBftOXvZ2FN8DumpNqkn8=" alt="Ramesh Kumar">
+                                        </div>
+
+                                        <div class="w-100">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                                                <div>
+                                                    <h5 class="fw-bold mb-0">Sunil</h5>
+                                                    <small class="text-muted">Home Owner</small>
+                                                </div>
+
+                                                <div class="stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                </div>
+                                            </div>
+
+                                            <p class="mt-3 mb-0 text-muted">
+                                                “Tiles and paint collection is very good. They suggested matching tiles
+                                                for my kitchen
+                                                and gave a clear estimate. Totally satisfied!”
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="testi-card p-4 p-lg-5">
+                                    <div class="d-flex align-items-start gap-3">
+                                         <div class="avatar">
+                                            <img src="https://media.istockphoto.com/id/1090124474/photo/the-happy-businessman-sitting-at-the-table-with-a-laptop.jpg?s=612x612&w=0&k=20&c=Kww1pyrIzxVRlMjM8f8YKrQByEv7FpDI_HWbgjW7Y9Q=" alt="Ramesh Kumar">
+                                        </div>
+
+                                        <div class="w-100">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                                                <div>
+                                                    <h5 class="fw-bold mb-0">Arun</h5>
+                                                    <small class="text-muted">Site Engineer</small>
+                                                </div>
+
+                                                <div class="stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                            </div>
+
+                                            <p class="mt-3 mb-0 text-muted">
+                                                “Reliable supplier. Genuine materials and billing is proper.
+                                                We regularly purchase cement bags and steel rods for our sites.”
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+                <!-- Dots -->
+    <!-- Dots -->
+<div class="carousel-indicators testi-dots">
+  <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active"></button>
+  <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="1"></button>
+  <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="2"></button>
+</div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+   <!-- PREMIUM FOOTER -->
+<footer class="ft">
+  <div class="ft-topline"></div>
+
+  <div class="container py-5">
+    <div class="row g-4 align-items-start">
+
+      <!-- Brand -->
+      <div class="col-lg-5">
+        <div class="ft-brand">
+          <div class="ft-mark"></div>
+          <div>
+            <h4 class="ft-name mb-1">CONSTRUCTO</h4>
+            <p class="ft-tag mb-3">Building materials you can trust.</p>
+          </div>
+        </div>
+
+        <p class="ft-desc mb-4">
+          Quality cement,steel,paint,and essentials for every build—from small homes to big projects.
+        </p>
+
+        <div class="ft-badges">
+          <span class="ft-badge">Quality Assured</span>
+          <span class="ft-badge">On-time Supply</span>
+          <span class="ft-badge">Best Price</span>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="ft-title">Quick Links</h6>
+        <ul class="ft-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Enquire</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-4 col-md-6">
+        <h6 class="ft-title">Contact</h6>
+
+        <div class="ft-contact">
+          <div class="ft-row">
+            <span class="ft-ic">📍</span>
+            <span>Madurai, Tamil Nadu</span>
+          </div>
+          <div class="ft-row">
+            <span class="ft-ic">📞</span>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+          <div class="ft-row">
+            <span class="ft-ic">✉</span>
+            <a href="mailto:info@constructo.com">info@constructo.com</a>
+          </div>
+        </div>
+
+        <div class="ft-mini mt-4">
+          <div class="ft-mini-card">
+            <div class="ft-mini-title">Working Hours</div>
+            <div class="ft-mini-text">Mon–Sat: 9:00 AM – 8:00 PM</div>
+          </div>
+          <div class="ft-mini-card">
+            <div class="ft-mini-title">Support</div>
+            <div class="ft-mini-text">Fast response on calls & WhatsApp</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="ft-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 py-3">
+      <div>© 2026 <span class="ft-gold">Constructo</span>. All rights reserved.</div>
+      <div class="ft-bottom-links">
+        <a href="#">Privacy</a>
+        <span class="ft-dot">•</span>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+    <!-- WhatsApp Floating Button -->
+<!-- Premium Glass WhatsApp Button -->
+<a href="https://wa.me/918489658015"
+   class="whatsapp-glass whatsapp-hidden"
+   id="whatsappBtn"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+   <i class="bi bi-whatsapp"></i>
+</a>
+
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
