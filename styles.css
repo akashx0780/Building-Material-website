@@ -508,7 +508,17 @@ body {
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
 }
+/* Hover effect for feature cards */
+.hover-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border-radius: 12px;
+}
 
+/* When mouse touches the card */
+.hover-card:hover {
+    transform: translateY(-8px) scale(1.05); /* moves up + increases size */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+}
 
 
 
