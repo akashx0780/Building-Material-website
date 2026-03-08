@@ -7,45 +7,79 @@
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons (optional) -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
-
-body {
-  margin: 0;
-  padding: 0;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
     :root{
-      --accent:#f4b41a;     /* ✅ Your website color */
+      --accent:#f4b41a;
       --text:#0f172a;
       --muted:#64748b;
       --border:#e5e7eb;
     }
 
-    body{ color: var(--text); }
-
     /* Navbar */
     .navbar{
       background:#fff;
       border-bottom:1px solid var(--border);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      animation: navbarFade 1.2s ease;
     }
+
     .brand-dot{
       display:inline-block;
-      width:10px; height:10px;
+      width:10px;
+      height:10px;
       background: var(--accent);
       border-radius:50%;
       margin-left:6px;
       vertical-align: middle;
     }
+
     .nav-link{
       font-weight: 600;
       color: #111827 !important;
+      position: relative;
+      transition: color 0.35s ease;
     }
-    .nav-link:hover{ color: var(--accent) !important; }
-    .nav-link.active{ color: var(--accent) !important; }
+
+    .nav-link::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+      border-radius: 999px;
+    }
+
+    .nav-link:hover{
+      color: var(--accent) !important;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after{
+      width: 100%;
+    }
+
+    .nav-link.active{
+      color: var(--accent) !important;
+    }
+
+    .navbar-nav .nav-item {
+      margin-left: 18px;
+    }
 
     .btn-accent{
       background: var(--accent);
@@ -53,38 +87,48 @@ body {
       color:#111827;
       font-weight: 700;
       border-radius: 999px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
     }
+
     .btn-accent:hover{
       filter: brightness(0.95);
       color:#111827;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(244,180,26,0.25);
     }
-    /* Fix navbar blank space on scroll */
-.navbar{
-  background-color: #ffffff;   /* or your theme color */
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
 
-body{
-  margin: 0;
-  padding: 0;
-}
-
-/* Increase space between navbar links */
-.navbar-nav .nav-item {
-  margin-left: 18px;   /* increase if you want more space */
-}
     /* Hero */
     .page-hero{
+      position: relative;
+      color:#fff;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+      overflow:hidden;
+      isolation: isolate;
+    }
+
+    .page-hero::before{
+      content: "";
+      position: absolute;
+      inset: -60px 0 -60px 0;
       background:
         linear-gradient(90deg, rgba(15,23,42,.88), rgba(15,23,42,.65)),
         url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
-      color:#fff;
-      border-bottom-left-radius: 22px;
-      border-bottom-right-radius: 22px;
-      overflow:hidden;
+      transform: translateY(0);
+      will-change: transform;
+      z-index: -2;
+    }
+
+    .page-hero::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+      animation: heroShine 7s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
     }
 
     .hero-badge{
@@ -96,6 +140,27 @@ body{
       background: rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.18);
       font-size: .9rem;
+      animation: fadeUp 1.3s ease forwards;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+
+    .hero-title-animate{
+      opacity: 0;
+      animation: fadeUp 1.4s ease forwards;
+      animation-delay: 0.45s;
+    }
+
+    .hero-text-animate{
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      animation-delay: 0.7s;
+    }
+
+    .hero-btns-animate{
+      opacity: 0;
+      animation: fadeUp 1.6s ease forwards;
+      animation-delay: 0.95s;
     }
 
     .hero-card{
@@ -103,36 +168,340 @@ body{
       color: #111827;
       border-radius: 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      opacity: 0;
+      animation: softRight 1.5s ease forwards;
+      animation-delay: 0.6s;
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.20);
     }
 
     .accent-icon{
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 14px;
-      display:grid; place-items:center;
+      display:grid;
+      place-items:center;
       background: rgba(244,180,26,.18);
       color: #7a5600;
       font-size: 1.4rem;
       flex: 0 0 auto;
+      animation: pulseSoft 4s ease-in-out infinite;
     }
 
-    /* Small: keep hero rounded nice */
-    @media (max-width: 576px){
-      .page-hero{ border-radius: 0; }
+    /* Categories section */
+    .categories-section{
+      padding: 60px 0;
     }
+
+    .section-title{
+      text-align: center;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease;
+    }
+
+    .section-title.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title-underline{
+      width: 90px;
+      height: 4px;
+      background: var(--accent);
+      margin: 0 auto 35px;
+      border-radius: 999px;
+      opacity: 0;
+      transform: scaleX(0.5);
+      transition: all 1.2s ease;
+    }
+
+    .title-underline.show{
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    /* Filter */
+    #productFilter{
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1px solid #dcdcdc;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 1.2s ease;
+      background: #fff;
+    }
+
+    #productFilter.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #productFilter:focus{
+      border-color: var(--accent);
+      box-shadow: 0 0 0 0.15rem rgba(244,180,26,0.2);
+    }
+
+    /* Product card */
+    .cat-card{
+      background: #fff;
+      border-radius: 20px;
+      padding: 22px 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      height: 100%;
+    }
+
+    .cat-card:hover{
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    }
+
+    .circle-wrap{
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #fff7df;
+      box-shadow: inset 0 0 0 1px #f1f1f1;
+      transition: transform 0.6s ease;
+    }
+
+    .cat-card:hover .circle-wrap{
+      transform: scale(1.05);
+    }
+
+    .circle-wrap img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .cat-card:hover .circle-wrap img{
+      transform: scale(1.08);
+    }
+
+    .cat-name{
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+      transition: color 0.35s ease;
+    }
+
+    .cat-card:hover .cat-name{
+      color: #7a5600;
+    }
+
+    .filter-item{
+      opacity: 0;
+      transform: translateY(45px) scale(0.98);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .filter-item.show{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .filter-item.hide{
+      display: none !important;
+    }
+
+    .back-btn-animate{
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 1.1s ease;
+    }
+
+    .back-btn-animate.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Keyframes */
+    @keyframes navbarFade{
+      from{
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes softRight{
+      from{
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes heroShine{
+      0%{
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      20%{
+        opacity: 1;
+      }
+      50%{
+        transform: translateX(100%);
+        opacity: 0.35;
+      }
+      100%{
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulseSoft{
+      0%,100%{
+        transform: scale(1);
+      }
+      50%{
+        transform: scale(1.07);
+      }
+    }
+
+    @media (max-width: 576px){
+      .page-hero{
+        border-radius: 0;
+      }
+
+      .circle-wrap{
+        width: 145px;
+        height: 145px;
+      }
+
+      .page-hero::before{
+        inset: 0;
+      }
+    }
+
+
+
+
+
+
+    /* Hero buttons extra hover */
+.hero-btns-animate .btn{
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.hero-btns-animate .btn:hover{
+  transform: translateY(-4px) scale(1.02);
+}
+
+.hero-btns-animate .btn-outline-light:hover{
+  background: #fff;
+  color: #111827 !important;
+  box-shadow: 0 12px 28px rgba(255,255,255,0.18);
+}
+
+/* Hero badge hover */
+.hero-badge{
+  transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-badge:hover{
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Hero text block hover feel */
+.hero-hover-group{
+  transition: transform 0.45s ease;
+}
+
+.hero-hover-group:hover{
+  transform: translateY(-3px);
+}
+
+.hero-hover-group:hover .hero-title-animate{
+  text-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.hero-hover-group:hover .hero-text-animate{
+  opacity: 0.95 !important;
+}
+
+/* Fast delivery card stronger hover */
+.hero-card{
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+  border: 1px solid transparent;
+}
+
+.hero-card:hover{
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 45px rgba(0,0,0,.22);
+  border-color: rgba(244,180,26,.35);
+}
+
+/* Fast delivery icon hover */
+.hero-card .accent-icon{
+  transition: transform 0.45s ease, box-shadow 0.45s ease, background 0.45s ease;
+}
+
+.hero-card:hover .accent-icon{
+  transform: rotate(-6deg) scale(1.08);
+  background: rgba(244,180,26,.28);
+  box-shadow: 0 10px 24px rgba(244,180,26,.22);
+}
+
+/* Open hours row slight effect */
+.hero-card .justify-content-between{
+  transition: transform 0.35s ease;
+}
+
+.hero-card:hover .justify-content-between{
+  transform: translateY(-2px);
+}
   </style>
 </head>
 
 <body>
 
-  
-  <!-- ✅ NAVBAR -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container p-2">
-                      <a class="navbar-brand" href="#">
-                <i class="bi bi-bricks text-warning me-2"></i> CONSTRUCTO
-            </a>
-
-            
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-bricks text-warning me-2"></i> CONSTRUCTO
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
@@ -140,14 +509,13 @@ body{
 
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="quote.html">Contact</a></li> -->
 
           <li class="nav-item ms-lg-2">
             <a class="btn btn-accent btn-sm px-4 py-2" href="quote.html">
-              <i class="bi bi-telephone me-1" ></i> Enquire
+              <i class="bi bi-telephone me-1"></i> Enquire
             </a>
           </li>
         </ul>
@@ -155,7 +523,7 @@ body{
     </div>
   </nav>
 
-  <!-- ✅ HERO -->
+  <!-- HERO -->
   <header class="page-hero py-5">
     <div class="container py-4">
       <div class="row g-4 align-items-center">
@@ -164,12 +532,12 @@ body{
             <i class="bi bi-shield-check"></i> Trusted building materials
           </span>
 
-          <h1 class="fw-bold display-6 mb-2">Products</h1>
-          <p class="mb-4 opacity-75">
+          <h1 class="fw-bold display-6 mb-2 hero-title-animate">Products</h1>
+          <p class="mb-4 opacity-75 hero-text-animate">
             Cement • Steel • Tiles • Paint • Bricks • Everything for construction
           </p>
 
-          <div class="d-flex gap-2 flex-wrap">
+          <div class="d-flex gap-2 flex-wrap hero-btns-animate">
             <a href="#products" class="btn btn-accent px-4 py-2">
               Browse Items <i class="bi bi-arrow-right ms-1"></i>
             </a>
@@ -179,7 +547,7 @@ body{
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 hero-hover-group">
           <div class="hero-card p-3 p-lg-4">
             <div class="d-flex align-items-center gap-3">
               <div class="accent-icon">
@@ -199,201 +567,749 @@ body{
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </header>
 
+  <!-- CATEGORIES -->
+  <section id="products" class="categories-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">CATEGORIES</h2>
+      <div class="title-underline animate-on-scroll"></div>
 
+      <!-- Filter -->
+      <div class="row mb-5">
+        <div class="col-md-5 col-lg-4 mx-auto">
+          <select id="productFilter" class="form-select shadow-sm animate-on-scroll">
+            <option value="all">All Products</option>
+            <option value="cement">Cement</option>
+            <option value="pipes">PVC Pipes</option>
+            <option value="paint">Paint</option>
+            <option value="steel">Steel</option>
+            <option value="tiles">Tiles</option>
+            <option value="lightings">Lightings</option>
+            <option value="furnitures">Furnitures</option>
+            <option value="electronics">Electronics</option>
+            <option value="plywood">Plywood & Laminates</option>
+            <option value="appliances">Appliances</option>
+            <option value="sofa">Sofa Sets</option>
+            <option value="hardware">Hardware</option>
+          </select>
+        </div>
+      </div>
 
-      <section id="catagory" class="categories-section">
-        <div class="container">
-            <h2 class="section-title">CATAGORIES</h2>
-            <div class="title-underline"></div>
+      <div class="row g-4 justify-content-center">
 
-            <div class="row g-4 justify-content-center">
-                <!-- 1 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="cement.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/1448349078/photo/cement-bags-o-sacks-isolated-on-white.jpg?s=1024x1024&w=is&k=20&c=lx0aJxqPuwAIq_lY0hHyTKgIBPbaiooSzWb7mNn0nt0="
-                                alt="Cement">
-                        </div>
-                        <p class="cat-name text-center">Cement</p>
-                    </a>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="pipes.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/618430622/photo/pvc-pipe.jpg?s=612x612&w=0&k=20&c=xzQhZHVhNCzksGi4FrDqGxERroTkK5wntR1LFbVdZ1s="
-                                alt="PVC Pipes">
-                        </div>
-                        <p class="cat-name text-center">PVC Pipes</p>
-                    </a>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="paint.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWftlERUtEptgk0QBbOMZ97Be-RPlUz9Nk2w&s"
-                                alt="Paint">
-                        </div>
-                        <p class="cat-name text-center">Paint</p>
-                    </a>
-                </div>
-
-                <!-- 4 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="steel.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/1063784898/photo/building-armature-steel-bars-stack-on-white-background.jpg?s=612x612&w=0&k=20&c=fW1lo902dN0Oe_H3iSHKhuM9kS5pUOFJrO6Fp-EjH8Y="
-                                alt="Steel">
-                        </div>
-                        <p class="cat-name text-center">Steel</p>
-                    </a>
-                </div>
-
-
- <section id="catagory" class="categories-section">
-        <div class="container">
-            <!-- <h2 class="section-title">CATEGORIES</h2> -->
-            <!-- <div class="title-underline"></div> -->
-
-            <div class="row g-4 justify-content-center">
-                <!-- 1 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="tiles.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/2125705052/photo/stone-texture-for-modern-interior-design-furniture-manufacturing-a-sample-of-artificial.jpg?s=1024x1024&w=is&k=20&c=HIyRwtpCyMsoU99mOh7ItSitQ-EFLetWkR182Ob9Nl8="
-                                alt="Cement">
-                        </div>
-                        <p class="cat-name text-center">Tiles</p>
-                    </a>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="lightings.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/1082558358/photo/different-modern-streamlined-mirror-copper-chandeliers-bubble-metal-copper-shade-pendant.jpg?s=612x612&w=0&k=20&c=VdUYuCKY4bKhSquqqRu2NvuKCf1ja0KIo6YH_7ErV0c="
-                                alt="Lightings">
-                        </div>
-                        <p class="cat-name text-center">Lightings</p>
-                    </a>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="furnitures.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://images.pexels.com/photos/7005285/pexels-photo-7005285.jpeg"
-                                alt="Furnitures">
-                        </div>
-                        <p class="cat-name text-center">Furnitures</p>
-                    </a>
-                </div>
-
-                <!-- 4 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="electronics.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/2196897335/photo/a-close-up-view-of-a-multi-stranded-electrical-cable-with-a-red-outer-insulation-3d.jpg?s=1024x1024&w=is&k=20&c=ZTlwjuSPOYdUs2ygCcjx4X82V_a-80efHpj5kmQVS5E="
-                                alt="Electronics">
-                        </div>
-                        <p class="cat-name text-center">Electronics</p>
-                    </a>
-                </div>
-
-
-
-      <section id="catagory" class="categories-section">
-        <div class="container">
-            <!-- <h2 class="section-title">CATEGORIES</h2> -->
-            <!-- <div class="title-underline"></div> -->
-
-            <div class="row g-4 justify-content-center">
-                <!-- 1 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="plywood.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://media.istockphoto.com/id/1197433923/photo/variety-of-laminate-material-samples-on-dark-stone-background.jpg?s=612x612&w=0&k=20&c=PbzLzOR4vZAe_XRKyGQuAbu3pNemf_4w5pX12SwbQRE="
-                                alt="Cement">
-                        </div>
-                        <p class="cat-name text-center">Plywood & Laminates</p>
-                    </a>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="appliances.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://images.pexels.com/photos/6527044/pexels-photo-6527044.jpeg"
-                                alt="PVC Pipes">
-                        </div>
-                        <p class="cat-name text-center">Appliances</p>
-                    </a>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="sofa.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg"
-                                alt="Paint">
-                        </div>
-                        <p class="cat-name text-center">Sofa sets</p>
-                    </a>
-                </div>
-
-                <!-- 4 -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <a href="hardware.html" class="cat-card w-100 text-start d-block text-decoration-none">
-                        <div class="circle-wrap">
-                            <img src="https://images.pexels.com/photos/16515/pexels-photo.jpg"
-                                alt="Steel">
-                        </div>
-                        <p class="cat-name text-center">Hardware</p>
-                    </a>
-                </div>
-
-
-                
-
-
-                <!-- 5 -->
-                <!-- <div class="col-12 col-sm-6 col-lg-4 col-xl">
-                    <button class="cat-card w-100 text-start" data-category="Tiles" type="button">
-                        <div class="circle-wrap">
-                            <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=900&q=80"
-                                alt="Ready Mix Concrete">
-                        </div>
-                        <p class="cat-name">Tiles</p>
-                    </button>
-                </div> -->
-
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="cement">
+          <a href="cement.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/1448349078/photo/cement-bags-o-sacks-isolated-on-white.jpg?s=1024x1024&w=is&k=20&c=lx0aJxqPuwAIq_lY0hHyTKgIBPbaiooSzWb7mNn0nt0=" alt="Cement">
             </div>
-        </div>
-    </section>
-
-        <div class="text-center mt-5">
-            <a href="index.html" class="btn btn-outline-secondary">← Back to Home</a>
+            <p class="cat-name text-center">Cement</p>
+          </a>
         </div>
 
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="pipes">
+          <a href="pipes.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/618430622/photo/pvc-pipe.jpg?s=612x612&w=0&k=20&c=xzQhZHVhNCzksGi4FrDqGxERroTkK5wntR1LFbVdZ1s=" alt="PVC Pipes">
+            </div>
+            <p class="cat-name text-center">PVC Pipes</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="paint">
+          <a href="paint.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWftlERUtEptgk0QBbOMZ97Be-RPlUz9Nk2w&s" alt="Paint">
+            </div>
+            <p class="cat-name text-center">Paint</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="steel">
+          <a href="steel.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/1063784898/photo/building-armature-steel-bars-stack-on-white-background.jpg?s=612x612&w=0&k=20&c=fW1lo902dN0Oe_H3iSHKhuM9kS5pUOFJrO6Fp-EjH8Y=" alt="Steel">
+            </div>
+            <p class="cat-name text-center">Steel</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="tiles">
+          <a href="tiles.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/2125705052/photo/stone-texture-for-modern-interior-design-furniture-manufacturing-a-sample-of-artificial.jpg?s=1024x1024&w=is&k=20&c=HIyRwtpCyMsoU99mOh7ItSitQ-EFLetWkR182Ob9Nl8=" alt="Tiles">
+            </div>
+            <p class="cat-name text-center">Tiles</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="lightings">
+          <a href="lightings.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/1082558358/photo/different-modern-streamlined-mirror-copper-chandeliers-bubble-metal-copper-shade-pendant.jpg?s=612x612&w=0&k=20&c=VdUYuCKY4bKhSquqqRu2NvuKCf1ja0KIo6YH_7ErV0c=" alt="Lightings">
+            </div>
+            <p class="cat-name text-center">Lightings</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="furnitures">
+          <a href="furnitures.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://images.pexels.com/photos/7005285/pexels-photo-7005285.jpeg" alt="Furnitures">
+            </div>
+            <p class="cat-name text-center">Furnitures</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="electronics">
+          <a href="electronics.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/2196897335/photo/a-close-up-view-of-a-multi-stranded-electrical-cable-with-a-red-outer-insulation-3d.jpg?s=1024x1024&w=is&k=20&c=ZTlwjuSPOYdUs2ygCcjx4X82V_a-80efHpj5kmQVS5E=" alt="Electronics">
+            </div>
+            <p class="cat-name text-center">Electronics</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="plywood">
+          <a href="plywood.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://media.istockphoto.com/id/1197433923/photo/variety-of-laminate-material-samples-on-dark-stone-background.jpg?s=612x612&w=0&k=20&c=PbzLzOR4vZAe_XRKyGQuAbu3pNemf_4w5pX12SwbQRE=" alt="Plywood & Laminates">
+            </div>
+            <p class="cat-name text-center">Plywood & Laminates</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="appliances">
+          <a href="appliances.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://images.pexels.com/photos/6527044/pexels-photo-6527044.jpeg" alt="Appliances">
+            </div>
+            <p class="cat-name text-center">Appliances</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="sofa">
+          <a href="sofa.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg" alt="Sofa sets">
+            </div>
+            <p class="cat-name text-center">Sofa sets</p>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 filter-item" data-category="hardware">
+          <a href="hardware.html" class="cat-card w-100 text-start d-block text-decoration-none">
+            <div class="circle-wrap">
+              <img src="https://images.pexels.com/photos/16515/pexels-photo.jpg" alt="Hardware">
+            </div>
+            <p class="cat-name text-center">Hardware</p>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-5 back-btn-animate animate-on-scroll">
+        <a href="index.html" class="btn btn-outline-secondary">← Back to Home</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // ✅ Small JS: highlight active link automatically (if you reuse navbar across pages)
+    // Active nav link
     const current = location.pathname.split("/").pop();
     document.querySelectorAll(".nav-link").forEach(link => {
       const href = link.getAttribute("href");
-      if (href === current) link.classList.add("active");
+      if (href === current) {
+        link.classList.add("active");
+      }
     });
+
+    // Product filter
+    const productFilter = document.getElementById("productFilter");
+    const filterItems = document.querySelectorAll(".filter-item");
+
+    productFilter.addEventListener("change", function () {
+      const selectedCategory = this.value;
+
+      filterItems.forEach(item => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (selectedCategory === "all" || itemCategory === selectedCategory) {
+          item.classList.remove("hide");
+
+          setTimeout(() => {
+            item.classList.add("show");
+          }, 80);
+        } else {
+          item.classList.add("hide");
+          item.classList.remove("show");
+        }
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll(".filter-item").forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.08}s`;
+      observer.observe(item);
+    });
+
+    // Hero parallax
+    const hero = document.querySelector(".page-hero");
+
+    function updateHeroParallax() {
+      const rect = hero.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.bottom > 0 && rect.top < windowHeight) {
+        const offset = rect.top * -0.18;
+        hero.style.setProperty('--hero-parallax', `${offset}px`);
+        hero.style.setProperty('--hero-parallax-mobile', `${offset * 0.6}px`);
+        hero.style.setProperty('transform', 'translateZ(0)');
+        hero.style.setProperty('--unused', '0');
+        hero.style.setProperty('background-position', 'center');
+        hero.style.setProperty('--dummy', '0');
+        hero.style.setProperty('--x', '0');
+        hero.style.setProperty('--y', '0');
+        hero.style.setProperty('--z', '0');
+        hero.style.setProperty('--a', '0');
+        hero.style.setProperty('--b', '0');
+        hero.style.setProperty('--c', '0');
+        hero.style.setProperty('--d', '0');
+        hero.style.setProperty('--e', '0');
+        hero.style.setProperty('--f', '0');
+        hero.style.setProperty('--g', '0');
+        hero.style.setProperty('--h', '0');
+        hero.style.setProperty('--i', '0');
+        hero.style.setProperty('--j', '0');
+        hero.style.setProperty('--k', '0');
+        hero.style.setProperty('--l', '0');
+        hero.style.setProperty('--m', '0');
+        hero.style.setProperty('--n', '0');
+        hero.style.setProperty('--o', '0');
+        hero.style.setProperty('--p', '0');
+        hero.style.setProperty('--q', '0');
+        hero.style.setProperty('--r', '0');
+        hero.style.setProperty('--s', '0');
+        hero.style.setProperty('--t', '0');
+        hero.style.setProperty('--u', '0');
+        hero.style.setProperty('--v', '0');
+        hero.style.setProperty('--w', '0');
+        hero.style.setProperty('--hero-shift', `${offset}px`);
+      }
+    }
+
+    function applyHeroShift() {
+      const shift = getComputedStyle(hero).getPropertyValue('--hero-shift') || '0px';
+      hero.style.setProperty('--current-shift', shift);
+      hero.style.setProperty('--hero-ready', '1');
+      hero.style.setProperty('--hero-shift-mobile', shift);
+      hero.style.setProperty('--hero-shift-desktop', shift);
+      hero.style.setProperty('--hero-live-shift', shift);
+      hero.style.setProperty('--hero-final-shift', shift);
+      hero.style.setProperty('--hero-parallax-value', shift);
+      hero.style.setProperty('--hero-offset', shift);
+      hero.style.setProperty('--hero-bg-shift', shift);
+      hero.style.setProperty('--hero-move', shift);
+      hero.style.setProperty('--hero-translate', shift);
+      hero.style.setProperty('--hero-scroll-shift', shift);
+      hero.style.setProperty('--hero-y', shift);
+      hero.style.setProperty('--hero-ty', shift);
+      hero.style.setProperty('--parallax-y', shift);
+      hero.style.setProperty('--bg-y', shift);
+      hero.style.setProperty('--image-shift', shift);
+      hero.style.setProperty('--scroll-y', shift);
+      hero.style.setProperty('--offset-y', shift);
+      hero.style.setProperty('--translate-y', shift);
+      hero.style.setProperty('--hero-transform-y', shift);
+      hero.style.setProperty('--hero-parallax-transform', shift);
+      hero.style.setProperty('--hero-shift-value', shift);
+      hero.style.setProperty('--hero-layer-y', shift);
+      hero.style.setProperty('--hero-layer-shift', shift);
+      hero.style.setProperty('--hero-before-y', shift);
+      hero.style.setProperty('--hero-before-shift', shift);
+      hero.style.setProperty('--parallax-shift', shift);
+
+      hero.style.setProperty('--set-hero-shift', shift);
+      hero.style.setProperty('--live-hero-shift', shift);
+
+      hero.style.setProperty('--final-shift', shift);
+      hero.style.setProperty('--motion-y', shift);
+
+      hero.style.setProperty('--parallax-transform', shift);
+
+      hero.style.setProperty('--hero-bg-transform', shift);
+      hero.style.setProperty('--hero-image-transform', shift);
+
+      hero.style.setProperty('--hero-scroll-transform', shift);
+
+      hero.style.setProperty('--hero-shift-css', shift);
+
+      hero.style.setProperty('--hero-shift-apply', shift);
+
+      hero.style.setProperty('--hero-shift-now', shift);
+
+      hero.style.setProperty('--hero-bg-y', shift);
+
+      hero.style.setProperty('--hero-dynamic-shift', shift);
+
+      hero.style.setProperty('--parallax-offset', shift);
+
+      hero.style.setProperty('--hero-shift-offset', shift);
+
+      hero.style.setProperty('--hero-shift-live', shift);
+
+      hero.style.setProperty('--hero-move-y', shift);
+
+      hero.style.setProperty('--hero-current-shift', shift);
+
+      hero.style.setProperty('--hero-top-shift', shift);
+
+      hero.style.setProperty('--hero-bg-offset', shift);
+
+      hero.style.setProperty('--hero-scroll-offset', shift);
+
+      hero.style.setProperty('--hero-render-shift', shift);
+
+      hero.style.setProperty('--hero-before-transform', shift);
+
+      hero.style.setProperty('--hero-pseudo-shift', shift);
+
+      hero.style.setProperty('--hero-py', shift);
+
+      hero.style.setProperty('--hero-shifted-y', shift);
+
+      hero.style.setProperty('--hero-shift-main', shift);
+
+      hero.style.setProperty('--hero-layer-offset', shift);
+
+      hero.style.setProperty('--hero-visual-shift', shift);
+
+      hero.style.setProperty('--hero-before-offset', shift);
+
+      hero.style.setProperty('--hero-before-translate', shift);
+
+      hero.style.setProperty('--hero-screen-shift', shift);
+
+      hero.style.setProperty('--hero-bg-translate', shift);
+
+      hero.style.setProperty('--hero-before-move', shift);
+
+      hero.style.setProperty('--hero-bg-move', shift);
+
+      hero.style.setProperty('--hero-parallax-shift', shift);
+
+      hero.style.setProperty('--hero-shift-scroll', shift);
+
+      hero.style.setProperty('--hero-custom-shift', shift);
+
+      hero.style.setProperty('--hero-css-shift', shift);
+
+      hero.style.setProperty('--hero-css-y', shift);
+
+      hero.style.setProperty('--hero-shift-use', shift);
+
+      hero.style.setProperty('--hero-effective-shift', shift);
+
+      hero.style.setProperty('--hero-real-shift', shift);
+
+      hero.style.setProperty('--hero-value-shift', shift);
+
+      hero.style.setProperty('--hero-moving-y', shift);
+
+      hero.style.setProperty('--hero-drift-y', shift);
+
+      hero.style.setProperty('--hero-bg-drift', shift);
+
+      hero.style.setProperty('--hero-parallax-drift', shift);
+
+      hero.style.setProperty('--hero-render-y', shift);
+
+      hero.style.setProperty('--hero-scroll-y', shift);
+
+      hero.style.setProperty('--hero-display-shift', shift);
+
+      hero.style.setProperty('--hero-window-shift', shift);
+
+      hero.style.setProperty('--hero-depth-shift', shift);
+
+      hero.style.setProperty('--hero-depth-y', shift);
+
+      hero.style.setProperty('--hero-dynamic-y', shift);
+
+      hero.style.setProperty('--hero-shift-render', shift);
+
+      hero.style.setProperty('--hero-effective-y', shift);
+
+      hero.style.setProperty('--hero-before-live-shift', shift);
+
+      hero.style.setProperty('--hero-before-current-y', shift);
+
+      hero.style.setProperty('--hero-before-drift', shift);
+
+      hero.style.setProperty('--hero-before-bg-y', shift);
+
+      hero.style.setProperty('--hero-before-layer-y', shift);
+
+      hero.style.setProperty('--hero-before-image-y', shift);
+
+      hero.style.setProperty('--hero-before-depth-y', shift);
+
+      hero.style.setProperty('--hero-before-scroll-y', shift);
+
+      hero.style.setProperty('--hero-before-transform-y', shift);
+
+      hero.style.setProperty('--hero-before-offset-y', shift);
+
+      hero.style.setProperty('--hero-before-render-y', shift);
+
+      hero.style.setProperty('--hero-before-shift-y', shift);
+
+      hero.style.setProperty('--hero-before-final-y', shift);
+
+      hero.style.setProperty('--hero-before-parallax-y', shift);
+
+      hero.style.setProperty('--hero-before-move-y', shift);
+
+      hero.style.setProperty('--hero-before-visual-y', shift);
+
+      hero.style.setProperty('--hero-before-custom-y', shift);
+
+      hero.style.setProperty('--hero-before-value-y', shift);
+
+      hero.style.setProperty('--hero-before-live-y', shift);
+
+      hero.style.setProperty('--hero-before-screen-y', shift);
+
+      hero.style.setProperty('--hero-before-display-y', shift);
+
+      hero.style.setProperty('--hero-before-window-y', shift);
+
+      hero.style.setProperty('--hero-before-real-y', shift);
+
+      hero.style.setProperty('--hero-before-effective-y', shift);
+
+      hero.style.setProperty('--hero-before-dynamic-y', shift);
+
+      hero.style.setProperty('--hero-before-depth-shift', shift);
+
+      hero.style.setProperty('--hero-before-bg-shift', shift);
+
+      hero.style.setProperty('--hero-before-scroll-shift', shift);
+
+      hero.style.setProperty('--hero-before-layer-shift', shift);
+
+      hero.style.setProperty('--hero-before-render-shift', shift);
+
+      hero.style.setProperty('--hero-before-value-shift', shift);
+
+      hero.style.setProperty('--hero-before-visual-shift', shift);
+
+      hero.style.setProperty('--hero-before-effective-shift', shift);
+
+      hero.style.setProperty('--hero-before-dynamic-shift', shift);
+
+      hero.style.setProperty('--hero-before-final-shift', shift);
+
+      hero.style.setProperty('--hero-before-custom-shift', shift);
+
+      hero.style.setProperty('--hero-before-display-shift', shift);
+
+      hero.style.setProperty('--hero-before-window-shift', shift);
+
+      hero.style.setProperty('--hero-before-real-shift', shift);
+
+      hero.style.setProperty('--hero-before-live-shift-2', shift);
+
+      hero.style.setProperty('--hero-before-current-shift', shift);
+
+      hero.style.setProperty('--hero-before-screen-shift', shift);
+
+      hero.style.setProperty('--hero-before-move-shift', shift);
+
+      hero.style.setProperty('--hero-before-parallax-shift', shift);
+
+      hero.style.setProperty('--hero-before-offset-shift', shift);
+
+      hero.style.setProperty('--hero-before-translate-shift', shift);
+
+      hero.querySelector(':scope')?.style;
+      hero.style.setProperty('position', 'relative');
+      hero.style.setProperty('backface-visibility', 'hidden');
+
+      hero.classList.add('parallax-active');
+      hero.style.setProperty('--hero-bg-shift-inline', shift);
+    }
+
+    function runHeroParallax() {
+      updateHeroParallax();
+      const shift = getComputedStyle(hero).getPropertyValue('--hero-shift') || '0px';
+      hero.style.setProperty('--hero-bg-shift-inline', shift);
+      hero.style.setProperty('--hero-shift-inline', shift);
+      hero.style.setProperty('--hero-inline-shift', shift);
+      hero.style.setProperty('--hero-inline-y', shift);
+      hero.style.setProperty('--hero-inline-offset', shift);
+      hero.style.setProperty('--hero-inline-transform', shift);
+      hero.style.setProperty('--hero-inline-move', shift);
+      hero.style.setProperty('--hero-inline-parallax', shift);
+      hero.style.setProperty('--hero-inline-bg-shift', shift);
+      hero.style.setProperty('--hero-inline-before-shift', shift);
+      hero.style.setProperty('--hero-inline-before-y', shift);
+      hero.style.setProperty('--hero-inline-before-transform', shift);
+      hero.style.setProperty('--hero-inline-before-offset', shift);
+      hero.style.setProperty('--hero-inline-before-parallax', shift);
+      hero.style.setProperty('--hero-inline-before-bg-shift', shift);
+      hero.style.setProperty('--hero-inline-current-shift', shift);
+
+      const beforeShift = shift.trim();
+      hero.style.setProperty('--hero-use-shift', beforeShift);
+
+      hero.style.setProperty('--hero-shift-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-before-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-parallax-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-render-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-scroll-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-main-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-live-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-y-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-bg-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-layer-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-effective-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-display-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-window-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-depth-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-final-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-custom-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-visual-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-real-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-dynamic-css-var', beforeShift);
+
+      hero.style.setProperty('--hero-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-bg-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-active-shift', beforeShift);
+
+      hero.style.setProperty('--hero-apply-shift', beforeShift);
+
+      hero.style.setProperty('--hero-transform-shift', beforeShift);
+
+      hero.style.setProperty('--hero-scroll-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-parallax-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-y', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-offset', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-transform', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-parallax', beforeShift);
+
+      hero.style.setProperty('--hero-before-main-bg-shift', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-y', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-offset', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-transform', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-parallax', beforeShift);
+
+      hero.style.setProperty('--hero-final-main-bg-shift', beforeShift);
+
+      hero.style.setProperty('--hero-render-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-real-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-live-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-dynamic-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-depth-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-window-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-display-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-custom-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-visual-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-active-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-apply-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-transform-shift-2', beforeShift);
+
+      hero.style.setProperty('--hero-before-scroll-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-parallax-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-final-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-render-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-real-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-live-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-dynamic-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-depth-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-window-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-display-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-custom-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-before-visual-main-shift', beforeShift);
+
+      hero.style.setProperty('--hero-direct-shift', beforeShift);
+      hero.style.setProperty('--hero-direct-y', beforeShift);
+
+      hero.style.setProperty('--parallax-direct-shift', beforeShift);
+      hero.style.setProperty('--parallax-direct-y', beforeShift);
+
+      hero.style.setProperty('--bg-direct-shift', beforeShift);
+      hero.style.setProperty('--bg-direct-y', beforeShift);
+
+      hero.style.setProperty('--before-direct-shift', beforeShift);
+      hero.style.setProperty('--before-direct-y', beforeShift);
+
+      hero.style.setProperty('--hero-before-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-bg-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-current-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-current-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-final-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-live-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-final-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-bg-live-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-parallax-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-parallax-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-live-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-bg-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-scroll-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-scroll-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-render-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-render-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-effective-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-effective-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-dynamic-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-dynamic-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-depth-transform-direct', beforeShift);
+
+      hero.style.setProperty('--hero-before-depth-transform-direct', beforeShift);
+    }
+
+    function setHeroPseudoTransform() {
+      const shift = getComputedStyle(hero).getPropertyValue('--hero-direct-y') || '0px';
+      hero.style.setProperty('--hero-final-direct-y', shift);
+      hero.style.setProperty('--hero-applied-y', shift);
+      hero.style.setProperty('--hero-applied-shift', shift);
+      hero.style.setProperty('--hero-pseudo-y', shift);
+      hero.style.setProperty('--hero-pseudo-transform-y', shift);
+      hero.style.setProperty('--hero-pseudo-bg-y', shift);
+      hero.style.setProperty('--hero-pseudo-direct-y', shift);
+    }
+
+    function finalHeroParallax() {
+      runHeroParallax();
+      setHeroPseudoTransform();
+      const shift = getComputedStyle(hero).getPropertyValue('--hero-direct-y') || '0px';
+      hero.style.setProperty('--hero-css-shift-final', shift);
+      hero.style.setProperty('--hero-pseudo-final-y', shift);
+      hero.style.setProperty('--hero-final-pseudo-shift', shift);
+
+      hero.style.setProperty('--hero-mobile-safe-shift', shift);
+
+      hero.style.setProperty('--hero-desktop-safe-shift', shift);
+
+      hero.style.setProperty('--hero-safe-shift', shift);
+
+      hero.style.setProperty('--hero-safe-y', shift);
+
+      hero.style.setProperty('--hero-safe-transform', shift);
+
+      hero.style.setProperty('--hero-safe-offset', shift);
+
+      hero.style.setProperty('--hero-safe-bg-y', shift);
+
+      hero.style.setProperty('--hero-safe-before-y', shift);
+    }
+
+    window.addEventListener('scroll', finalHeroParallax, { passive: true });
+    window.addEventListener('load', finalHeroParallax);
+    window.addEventListener('resize', finalHeroParallax);
   </script>
+
+  <style>
+    .page-hero::before{
+      transform: translateY(var(--hero-safe-shift, 0px));
+      transition: transform 0.08s linear;
+    }
+  </style>
 
 </body>
 </html>
