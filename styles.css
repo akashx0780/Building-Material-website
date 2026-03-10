@@ -146,6 +146,26 @@ h6 {
   margin-left: 18px;
 }
 
+
+@media (max-width: 991px) {
+
+.navbar-nav {
+    padding-top: 10px;
+}
+
+.navbar-nav .nav-item {
+    margin-bottom: 6px;
+}
+
+.navbar .btn-accent {
+    border-radius: 8px;
+}
+
+}
+
+
+
+
 /* =========================
    STATIC HERO SECTION
    ========================= */
