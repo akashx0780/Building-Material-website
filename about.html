@@ -180,6 +180,167 @@ body{
 }
 
 
+
+/* =========================
+   PREMIUM PAGE ANIMATIONS
+   ========================= */
+
+/* Smooth page rendering */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Hero animation */
+.about-hero {
+    animation: heroZoom 2.8s ease forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes heroZoom {
+    0% {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Generic reveal base */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different premium reveal styles */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-55px);
+    transition: opacity 2s ease, transform 2s ease;
+    will-change: opacity, transform;
+}
+.reveal-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(55px);
+    transition: opacity 2s ease, transform 2s ease;
+    will-change: opacity, transform;
+}
+.reveal-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 2.1s ease, transform 2.1s ease;
+    will-change: opacity, transform;
+}
+.reveal-zoom.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Slight stagger delay helpers */
+.delay-1 { transition-delay: 0.35s; }
+.delay-2 { transition-delay: 0.7s; }
+.delay-3 { transition-delay: 1.05s; }
+.delay-4 { transition-delay: 1.4s; }
+
+/* Card hover animation */
+.stat,
+.p-4.bg-white.rounded-24.shadow-sm.h-100,
+.p-4.p-lg-5.border.rounded-24.h-100,
+.bg-white.text-dark.p-4.rounded-24.shadow-sm,
+.timeline,
+img.rounded-24 {
+    transition:
+        transform 0.9s ease,
+        box-shadow 0.9s ease,
+        filter 0.9s ease;
+}
+
+.stat:hover,
+.p-4.bg-white.rounded-24.shadow-sm.h-100:hover,
+.p-4.p-lg-5.border.rounded-24.h-100:hover,
+.bg-white.text-dark.p-4.rounded-24.shadow-sm:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Image premium hover */
+img.rounded-24:hover {
+    transform: scale(1.025);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14) !important;
+}
+
+/* Icon animation */
+.icon-box {
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+.icon-box:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 12px 24px rgba(244, 180, 26, 0.18);
+}
+
+/* Buttons premium hover */
+.btn,
+.nav-link,
+.navbar-brand {
+    transition: all 0.7s ease !important;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Timeline item reveal softness */
+.t-item {
+    transition: transform 1.1s ease, opacity 1.1s ease;
+}
+.t-item:hover {
+    transform: translateX(6px);
+}
+
+/* Back to top button animation */
+#topBtn {
+    transition: transform 0.7s ease, opacity 0.7s ease;
+}
+#topBtn:hover {
+    transform: translateY(-4px) scale(1.06);
+}
+
+/* Navbar soft fade on load */
+.navbar {
+    animation: navFade 1.6s ease forwards;
+}
+@keyframes navFade {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 </head>
 
@@ -519,6 +680,122 @@ body{
         topBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
+
+
+
+
+
+        /* =========================
+   PREMIUM SCROLL ANIMATIONS
+   ========================= */
+
+// Select elements and assign different animation styles
+document.querySelectorAll("section h2, section h3").forEach((el) => {
+    el.classList.add("reveal");
+});
+
+document.querySelectorAll(".about-hero .col-lg-7").forEach((el) => {
+    el.classList.add("reveal-left", "show");
+});
+
+document.querySelectorAll(".about-hero .col-lg-5").forEach((el) => {
+    el.classList.add("reveal-right", "show");
+});
+
+document.querySelectorAll('section .col-lg-6 img, section .col-lg-5, section .col-lg-7').forEach((el, i) => {
+    if (!el.closest(".about-hero")) {
+        el.classList.add(i % 2 === 0 ? "reveal-left" : "reveal-right");
+    }
+});
+
+document.querySelectorAll(".stat").forEach((el, i) => {
+    el.classList.add("reveal-zoom", `delay-${(i % 4) + 1}`);
+});
+
+document.querySelectorAll(".soft-bg .p-4.bg-white.rounded-24.shadow-sm.h-100").forEach((el, i) => {
+    el.classList.add("reveal", `delay-${(i % 4) + 1}`);
+});
+
+document.querySelectorAll(".p-4.p-lg-5.border.rounded-24.h-100").forEach((el, i) => {
+    el.classList.add(i % 2 === 0 ? "reveal-left" : "reveal-right");
+});
+
+document.querySelectorAll(".timeline .t-item").forEach((el, i) => {
+    el.classList.add("reveal");
+    if (i === 0) el.classList.add("delay-1");
+    if (i === 1) el.classList.add("delay-2");
+    if (i === 2) el.classList.add("delay-3");
+});
+
+document.querySelectorAll("footer, .container > .p-4.p-lg-5.rounded-24.text-white.shadow-sm").forEach((el) => {
+    el.classList.add("reveal-zoom");
+});
+
+// Intersection observer for reveal
+const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-zoom");
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.18,
+    rootMargin: "0px 0px -60px 0px"
+});
+
+revealElements.forEach(el => {
+    if (!el.classList.contains("show")) {
+        revealObserver.observe(el);
+    }
+});
+
+
+
+
+
+/* =========================
+   WHO WE ARE SECTION ANIMATION
+   ========================= */
+
+const whoSection = document.querySelectorAll(".col-lg-6");
+
+whoSection.forEach((el, i) => {
+
+  if (i === 0) {
+    // image side
+    const img = el.querySelector("img");
+    if (img) {
+      img.classList.add("reveal-left");
+      revealObserver.observe(img);
+    }
+
+  } else {
+    // text side
+    const heading = el.querySelector("h2");
+    const text = el.querySelector("p");
+
+    if (heading) {
+      heading.classList.add("reveal-right");
+      revealObserver.observe(heading);
+    }
+
+    if (text) {
+      text.classList.add("reveal-right", "delay-1");
+      revealObserver.observe(text);
+    }
+
+    // feature rows
+    const features = el.querySelectorAll(".d-flex");
+    features.forEach((feature, index) => {
+      feature.classList.add("reveal-right", `delay-${(index % 3) + 1}`);
+      revealObserver.observe(feature);
+    });
+  }
+
+});
     </script>
 </body>
 
