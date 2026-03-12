@@ -61,7 +61,7 @@ h6 {
   background: #e6a51a;
   color: #111827;
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 14px 32px rgba(217, 164, 65, 0.35);
+  /* box-shadow: 0 14px 32px rgba(217, 164, 65, 0.35); */
 }
 
 /* =========================
@@ -164,7 +164,32 @@ h6 {
 }
 
 
+/* Improve mobile navbar spacing */
+@media (max-width: 991px) {
 
+  .navbar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .navbar-brand {
+    font-size: 1.05rem;
+  }
+
+  .navbar-collapse {
+    padding-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+
+  .navbar-nav .btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+}
 
 /* =========================
    STATIC HERO SECTION
